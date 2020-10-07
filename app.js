@@ -1,7 +1,53 @@
-let playerSelection = "Rock";
+// Selector
+const userChoise = document.querySelector('.user-choice__container');
+const userImage = document.getElementById('user-choice__big-image');
+const compImage = document.getElementById('comp-choice__big-image');
+const boardGame = document.querySelector('.board');
+const playerScoreBoard = document.getElementById('user__score');
+const compScoreBoard = document.getElementById('comp__score');
+const maxScoreBoard = document.getElementById('max__score');
+const restartButton = document.getElementById('restart');
+let maxScore;
+let playerSelection, computerSelection;
+let playerScore = 0;
+let computerScore = 0;
 
-function compRandomSelection() {
-    let computerSelection = Math.random();
+// Event Listenner
+playerSelection = userChoise.addEventListener('click', playGame)
+maxScoreBoard.addEventListener('click', restart)
+restartButton.addEventListener('click', restart)
+
+
+
+
+
+// Function
+function gameInit() {
+    maxScore = parseInt(prompt(`Please enter a maximum score. Default value is 5`));
+    if (!maxScore) {
+        alert(`You enter a wrong number, max score return to default 5 `)
+        maxScore = 5;
+    }
+    maxScoreBoard.innerHTML = `MAX SCORE: ${maxScore}`;
+}
+
+
+function playGame(e) {
+    playerSelector(e);
+    compRandomSelector();
+    checkWinner();
+    checkMaxScore();
+}
+
+function playerSelector(e) {
+    playerSelection = e.target.id;
+    userImage.src = `assets/${playerSelection}.png`;
+    console.log(`Player : ${playerSelection}`);
+    return playerSelection
+}
+
+function compRandomSelector() {
+    computerSelection = Math.random();
     if (computerSelection < 0.34) {
         computerSelection = "Rock";
     } else if (computerSelection <= 0.67) {
@@ -9,7 +55,9 @@ function compRandomSelection() {
     } else {
         computerSelection = "Scissors";
     }
-    console.log(computerSelection);
+    compImage.src = `assets/${computerSelection}.png`
+    console.log(`Comp: ${computerSelection}`);
+    return computerSelection;
 }
 
 function checkWinner() {
@@ -27,13 +75,48 @@ function checkWinner() {
 }
 
 function win() {
-    console.log("You Win");
+    boardGame.innerHTML = "You win";
+    playerScore++
+    playerScoreBoard.innerHTML = playerScore;
+    console.log(`You: ${playerScore}, comp: ${computerScore}`);
 }
 
 function draw() {
-    console.log("Draw! It's a tie");
+    boardGame.innerHTML = "Draw! It's a tie";
+    console.log(`You: ${playerScore}, comp: ${computerScore}`);
 }
 
 function lose() {
-    console.log("You Lose");
+    boardGame.innerHTML = "You Lose";
+    computerScore++
+    compScoreBoard.innerHTML = computerScore;
+    console.log(`You: ${playerScore}, comp: ${computerScore}`);
 }
+
+function checkMaxScore() {
+    setTimeout(() => {
+        if (playerScore === maxScore) {
+            alert(`YEEYYYYYY, YOU WIN!!`);
+            reset()
+        }
+
+        if (computerScore === maxScore) {
+            alert(`HAHAHA, YOU LOSE!!`);
+            reset()
+        }
+    }, 100);
+}
+
+function reset() {
+    playerScore = 0;
+    computerScore = 0;
+    playerScoreBoard.innerHTML = playerScore;
+    compScoreBoard.innerHTML = computerScore;
+    maxScoreBoard.innerHTML = `MAX SCORE: ${maxScore}`;
+}
+
+
+function restart() {
+    gameInit()
+}
+gameInit()

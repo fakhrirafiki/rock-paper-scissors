@@ -40,7 +40,7 @@ body {
     position: relative;
 }
 
-.img__container {
+.user-choice__container {
     /* margin: auto; */
     width: 100%;
     margin: auto;
@@ -52,7 +52,7 @@ body {
     bottom: 15px;
 }
 
-.img__container img {
+.user-choice__container img {
     width: 75px;
     height: 75px;
     background-color: #9c835f;
@@ -63,13 +63,13 @@ body {
     transition: linear 200ms;
 }
 
-.img__container img:hover {
+.user-choice__container img:hover {
     background-color: #503f28;
     transform: scale(1.2);
     cursor: pointer;
 }
 
-.img__container img:nth-child(2) {
+.user-choice__container img:nth-child(2) {
     position: relative;
     bottom: 30px;
 }
