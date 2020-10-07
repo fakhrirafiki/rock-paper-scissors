@@ -13,11 +13,9 @@ let playerScore = 0;
 let computerScore = 0;
 
 // Event Listenner
-playerSelection = userChoise.addEventListener('click', playGame)
-maxScoreBoard.addEventListener('click', restart)
-restartButton.addEventListener('click', restart)
-
-
+playerSelection = userChoise.addEventListener('click', playerSelector);
+maxScoreBoard.onclick = changeMaxScore;
+restartButton.onclick = restart;
 
 
 
@@ -32,18 +30,19 @@ function gameInit() {
 }
 
 
-function playGame(e) {
-    playerSelector(e);
-    compRandomSelector();
-    checkWinner();
-    checkMaxScore();
-}
 
 function playerSelector(e) {
     playerSelection = e.target.id;
     userImage.src = `assets/${playerSelection}.png`;
     console.log(`Player : ${playerSelection}`);
+    playGame()
     return playerSelection
+}
+
+function playGame() {
+    compRandomSelector();
+    checkWinner();
+    checkMaxScore();
 }
 
 function compRandomSelector() {
@@ -116,7 +115,15 @@ function reset() {
 }
 
 
-function restart() {
-    gameInit()
+function changeMaxScore() {
+    askForChange = confirm(`Do you want to reset and change the maximum score?`);
+    if (!askForChange) return;
+    reset();
+    gameInit();
 }
-gameInit()
+
+function restart() {
+    reset();
+}
+
+gameInit();

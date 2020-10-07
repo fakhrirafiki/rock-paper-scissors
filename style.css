@@ -23,6 +23,7 @@ body {
 .wrapper {
     /* height: 50vh; */
     width: 700px;
+
     margin: auto;
     border: 1px solid #fff;
 }
