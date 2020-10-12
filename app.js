@@ -33,19 +33,23 @@
     }
 
     function playerSelector(e) {
+        userChoise.classList.toggle("stopEventListener");
         shake();
         playerHero = e.target.id;
         setTimeout(() => {
+            userChoise.classList.toggle("stopEventListener");
             userImage.src = `assets/${playerHero}.png`;
             console.log(`Player : ${playerHero}`);
             playGame();
         }, 1100);
+        // userChoise.classList.toggle("stopEvent");
+        // playerHero.style.pointerEvents = "auto";
         return playerHero;
     }
 
     function shake() {
         const shakeStartAt = new Date().getTime();
-        setInterval(function () {
+        setInterval(() => {
             if (new Date().getTime() - shakeStartAt > 1100) {
                 clearInterval;
                 return
@@ -55,6 +59,8 @@
             userImage.classList.toggle("shake");
             compImage.classList.toggle("shake");
         }, 100);
+
+
     }
 
     function playGame() {

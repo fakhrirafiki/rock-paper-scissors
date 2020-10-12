@@ -6,7 +6,6 @@
 }
 
 body {
-    /* background-image: url("assets/background.jpg");   */
     background-image: linear-gradient(#eacda3, #d6ae7b);
     background-position: center;
     background-repeat: no-repeat;
@@ -15,15 +14,12 @@ body {
 }
 
 .container {
-    /* background-color: #9c835f; */
     height: 100vh;
     position: relative;
 }
 
 .wrapper {
-    /* height: 50vh; */
     width: 700px;
-
     margin: auto;
     border: 1px solid #fff;
 }
@@ -42,10 +38,8 @@ body {
 }
 
 .user-choice__container {
-    /* margin: auto; */
     width: 100%;
     margin: auto;
-    /* background-color: aqua; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -76,7 +70,6 @@ body {
 }
 
 .big-image__container {
-    /* background-color: aqua; */
     width: 100%;
     margin: auto;
     display: flex;
@@ -86,8 +79,6 @@ body {
 }
 
 .comp .big-image__container {
-    /* bottom: 50px; */
-    /* background-color: aquamarine; */
     bottom: 50px;
     transform: scaleY(-1);
 }
@@ -108,23 +99,16 @@ body {
     z-index: 1;
     transform: translateX(-50%);
     display: flex;
-    /* justify-content: space-around; */
-    /* align-items: center; */
-    /* top: 50px; */
-    /* right: 50%; */
-    /* margin: auto; */
 }
 
 .score__container .score__wrapper {
     padding: 0 10px;
     width: 220px;
-    /* margin: 0 10px; */
     position: relative;
     top: 20px;
 }
 
 .score__container > div > p {
-    /* padding: 10px; */
     background-color: #cfb969;
     width: 100%;
     height: 40px;
@@ -133,22 +117,17 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* padding-bottom: 100px; */
-    /* margin-top: -10px; */
 }
 
 .score__container .user p {
-    /* color: red; */
     padding: 0 50px 0 0;
 }
 
 .score__container .comp p {
-    /* color: red; */
     padding: 0 0 0 50px;
 }
 
 .score__container > div > h4 {
-    /* padding: 10px; */
     background-color: #cfb969;
     width: 60px;
     height: 60px;
@@ -167,11 +146,9 @@ body {
 }
 
 .score__wrapper.user {
-    /* background-color: blue; */
 }
 
 .score__wrapper.comp {
-    /* background-color: red; */
 }
 
 /* BOARD TENGAH*/
@@ -187,7 +164,6 @@ body {
     z-index: 20000;
     left: 50%;
     top: 0;
-    /* bottom: 0%; */
     transform: translate(-50%, -50%);
 }
 
@@ -217,42 +193,8 @@ body {
 
 .shake {
     margin-top: 15px;
-    /* animation: shake 1s;
-    animation-iteration-count: 1; */
 }
 
-/* @keyframes shake {
-    0% {
-        transform: translate(0px, 5px);
-    }
-    10% {
-        transform: translate(0px, -5px);
-    }
-    20% {
-        transform: translate(0px, 5px);
-    }
-    30% {
-        transform: translate(0px, -5px);
-    }
-    40% {
-        transform: translate(0px, 5px);
-    }
-    50% {
-        transform: translate(0px, -5px);
-    }
-    60% {
-        transform: translate(0px, 5px);
-    }
-    70% {
-        transform: translate(0px, -5px);
-    }
-    80% {
-        transform: translate(0px, 5px);
-    }
-    90% {
-        transform: translate(0px, -5px);
-    }
-    100% {
-        transform: translate(0px, 5px);
-    }
-} */
+.stopEventListener {
+    pointer-events: none;
+}
